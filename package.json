@@ -1,0 +1,81 @@
+{
+  "name": "testing-workshop",
+  "version": "0.0.1",
+  "main": "index.js",
+  "private": "true",
+  "jest": {
+    "testEnvironment": "jsdom",
+    "transformIgnorePatterns": [
+      "node_modules/(?!axios)"
+    ],
+    "collectCoverageFrom": [
+      "{client,server}/**/*.{js,jsx}",
+      "!**/app.jsx",
+      "!**/server.js"
+    ]
+  },
+  "scripts": {
+    "start": "node ./server/server.js",
+    "devServe": "nodemon --watch server/index.js --watch server server/server.js",
+    "build": "esbuild --bundle --minify --target=ES6 --outfile=public/bundle.js client/app.jsx",
+    "devBuild": "nodemon --watch client --exec ./node_modules/.bin/esbuild --bundle --sourcemap --target=ES6 --outfile=public/bundle.js client/app.jsx",
+    "test": "jest --coverage",
+    "devTest": "jest --watchAll --verbose",
+    "testJest": "jest --detectOpenHandles"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kirbitz/CS458-SchedulingTool.git"
+  },
+  "keywords": [
+    "Scheduling",
+    "Stout"
+  ],
+  "author": "Tyler Marefke, Adam Lucka, Augustus Knaack, Caleb Czeck, Garrett Preston, Jacob Gibbs, Karsten Roland, Yoonseo Park",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kirbitz/CS458-SchedulingTool/issues"
+  },
+  "homepage": "https://github.com/Kirbitz/CS458-SchedulingTool#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.19.3",
+    "@babel/preset-react": "^7.18.6",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/jest": "^29.1.2",
+    "@types/supertest": "^2.0.12",
+    "axios-mock-adapter": "^1.21.2",
+    "babel-jest": "^29.1.2",
+    "esbuild": "^0.15.10",
+    "eslint": "^8.24.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^27.1.1",
+    "eslint-plugin-n": "^15.3.0",
+    "eslint-plugin-promise": "^6.0.1",
+    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "express": "^4.18.1",
+    "jest": "^29.1.2",
+    "jest-environment-jsdom": "^29.1.2",
+    "nodemon": "^2.0.20",
+    "react-test-renderer": "^18.2.0",
+    "supertest": "^6.3.0"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mui/icons-material": "^5.10.9",
+    "@mui/material": "^5.10.8",
+    "axios": "^1.1.3",
+    "dotenv": "^16.0.3",
+    "express-rate-limit": "^6.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^2.3.0",
+    "mysql": "^2.18.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.2",
+    "sjcl": "^1.0.8"
+  }
+}
