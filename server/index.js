@@ -8,6 +8,14 @@ app.use((req, response, next) => {
   next()
 })
 
+app.get('/update', (req, res) => {
+  res.status(200).json(
+    {
+      change: 'This was a called update from Express.js'
+    }
+  )
+})
+
 app.use(Express.static('public'))
 
 module.exports = app
