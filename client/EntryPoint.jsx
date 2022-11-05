@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react'
 
-import { Box, Button, Container, CssBaseline, Typography } from '@mui/material'
+import { Box, Container, CssBaseline, Typography } from '@mui/material'
 
 import { BrowserRouter } from 'react-router-dom'
 
 import { getUpdateText } from './dataHelper.js'
+import Count from './Count.jsx'
 
 // The entry point of the entire react app
 // Exists to give a location for managing state effectively without overfilling app.jsx
@@ -27,9 +28,8 @@ export default function EntryPoint (props) {
     updateText()
   }, [])
 
-  const updateCount = () => {
-    const update = count + 1
-    setCount(update)
+  const updateCount = (countData) => {
+    setCount(countData)
   }
 
   return (
@@ -45,12 +45,7 @@ export default function EntryPoint (props) {
         <Typography align='center' variant='span' component='div' sx={{ mt: 3 }}>
           {callText}
         </Typography>
-        <Typography align='center' variant='span' component='div' sx={{ mt: 3 }}>
-          Current Count: { count }
-        </Typography>
-        <Button onClick={updateCount} variant='outlined' color='success' sx={{ mx: 'auto', display: 'flex', mb: 3 }}>
-          Click Me!
-        </Button>
+        <Count count={count} callback={updateCount} />
       </Container>
     </BrowserRouter>
   )
