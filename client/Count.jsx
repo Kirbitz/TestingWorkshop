@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { Button, Typography } from '@mui/material'
 
@@ -8,7 +9,9 @@ export default function Count (props) {
   const { count, callback } = props
 
   const incrementCount = () => {
-    callback(count + 1)
+    if (callback) {
+      callback(count + 1)
+    }
   }
 
   return (
@@ -21,4 +24,14 @@ export default function Count (props) {
       </Button>
     </React.Fragment>
   )
+}
+
+Count.propTypes = {
+  count: PropTypes.number,
+  callback: PropTypes.func
+}
+
+Count.defaultProps = {
+  count: 0,
+  callback: null
 }
