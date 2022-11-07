@@ -17,8 +17,8 @@ app.get('/update', (req, res) => {
   )
 })
 
-app.post('/fun', DummyFunction)
-
 app.use(Express.static('public'))
+
+app.post('/fun', DummyFunction)
 
 module.exports = app
