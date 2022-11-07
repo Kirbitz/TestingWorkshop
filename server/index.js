@@ -1,4 +1,5 @@
 const Express = require('express')
+const { DummyFunction } = require('./router.js')
 
 const app = new Express()
 
@@ -15,6 +16,8 @@ app.get('/update', (req, res) => {
     }
   )
 })
+
+app.post('/fun', DummyFunction)
 
 app.use(Express.static('public'))
 
