@@ -3,5 +3,3 @@
 /coverage/
 **/bundle.*
 /.vscode/
-/tests/
-/CompletedTests/
